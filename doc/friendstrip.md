@@ -1,23 +1,4 @@
-##用户信息
-
-+ 基本信息
-    
-    - 手机号，昵称，密码
-
-+ 扩展信息
-
-	- 收藏（景点）/短评/赞/系统消息/发布的出行纪录
-	
-
-##景点信息
-
-+ 基本信息
-
-	- 景点名称，所在城市，所在省，游记，评论，赞
-	
-
-+ 扩展信息	 
-
+## 数据库
 	
 ```
 用户信息
@@ -101,6 +82,7 @@ title varchar(200)
 content text
 city_id int(11)
 country_id int(11)
+data 
 
 收藏
 Collection
@@ -109,16 +91,18 @@ collection_id int(11) --收藏的景点/评论的 id
 type tinyint(1) -- 1景点，2游记
 
 
+关注出行纪录表
+Attention
+id
+user_id
+trips_id
+date 关注时间
+
+
+
 ```
 
-##ISSUE
-
-短评／评论的区别
-
-发布出行信息，然后呢？	
-	
-	
-	
+		
 ##开发
 
 1. 客户端java，服务端php	
@@ -129,5 +113,4 @@ type tinyint(1) -- 1景点，2游记
 	
 	+ 图片缓存
 	
-3. 
 
