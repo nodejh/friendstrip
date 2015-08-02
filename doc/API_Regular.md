@@ -1,6 +1,6 @@
 ##接口格式设计
 
-**Basic Regular
+**Basic Regular**
 
 1. 全部使用英文标点
 
@@ -14,32 +14,30 @@
 
     + 本地开发时: localhost:3001/interface_name
     
+1. 状态码
+
+    1). HTTP 状态码
     
-1. 基本状态码
-
-    + 0成功, 其他失败
+     + 参考 <http://baike.baidu.com/link?url=EJwXUDxQkjZEqtQCA3bC6GES13s-jSyH-YbCWbmQiwJyNpIkLU2DJ9zEw_mnvTg0m_suHMlDxU9nSCprxqWcBa#3>
+     
+    2) 自定义状态码
     
-            
-1. HTTP 状态码  
-  
-  ＋ 参考 <http://baike.baidu.com/link?url=EJwXUDxQkjZEqtQCA3bC6GES13s-jSyH-YbCWbmQiwJyNpIkLU2DJ9zEw_mnvTg0m_suHMlDxU9nSCprxqWcBa#3>
-  
- 
-1. 自定义状态码
+     *规则:*
+      
+       *前两位表示 API 编号,后两位表示具体信息; 整数(如1000/2000）为公共状态*
+        
+       *0成功, 其他失败*
+       
+       + 1000 密码错误，非法操作
+         
+       + 1001 已经赞过该景点
+       + 1002 已经赞过该游记
+       + 1003 已经赞过该评论
+        
+       + 2001 已经收藏过该景点
+       + 2002 已经收藏过该游记
+       + 2003 已经收藏过该评论
 
-
-    规则:前两位表示 API 编号,后两位表示具体信息; 整数(如1000/2000）为公共状态
- 
-  + 1000 密码错误，非法操作
-  
-  + 1001 已经赞过该景点
-  + 1002 已经赞过该游记
-  + 1003 已经赞过该评论
- 
-  + 2001 已经收藏过该景点
-  + 2002 已经收藏过该游记
-  + 2003 已经收藏过该评论
-  
 
 ###用户部分
 
