@@ -29,6 +29,8 @@
 
 + MarkDown 语法说明: <http://www.markdown.cn>
 
++ Markdown 语法说明 (简体中文版): <http://www.appinn.com/markdown>
+
 **5.HTTP**
 
 + HTTP Status Code: <http://baike.baidu.com/link?url=EJwXUDxQkjZEqtQCA3bC6GES13s-jSyH-YbCWbmQiwJyNpIkLU2DJ9zEw_mnvTg0m_suHMlDxU9nSCprxqWcBa>
