@@ -53,7 +53,7 @@
     
     {
       "uid": 1,                     // number - 用户Id  
-      "password": "password",   // string - 用户密码   
+      "token": "token",   // string - 用户密码   
       "type": 1,                    // number [1,2,3] - 1表示景点的赞,2表示游记的赞,3表示评论的赞
       "approvalId": 111              // number - 景点/游记/评论的 id
     }
@@ -88,7 +88,7 @@
     
     {
       "uid": 1,            // number - 用户 id 
-      "password": "password",   // string - 用户密码   
+      "token": "token",   // string - 用户密码   
       "type": 1,           // number [1,2,3] - 1表示景点的收藏, 2表示游记的收藏, 3表示评论的收藏
       "collectionId": 111     // number - 景点/游记/评论的 id
     }
@@ -821,3 +821,43 @@ Success:
     "ErrorCode":"xx",
     "ErrorMsg":"xxx",
 
+
+
+
+## 系统部分
+
+**1. 用户登录**
+
+功能简介:
+    
+    用户登录的时候，向服务端发送用户名和密码；服务端判断用户名和密码正确后，生成一个token值保存在数据库，并返回给客户端；客户端保存此token值；以后每次用户向服务端发送请求，都需要发送给服务端。
+    
+客户端请求 (POST):
+
+    // URL: localhost:3001/login
+    
+    {
+      "userName": 1,            // string - 用户名  
+      "password": "password",   // string - 用户密码   
+    }
+    
+    
+服务端返回:
+    
+    // success
+    {
+      "status": 0,                          // number - 成功状态码 
+      "uid": 1,                             // number - 用户 ID
+      "userSex": 0,                         // number [0,1,2] - 用户性别，1男，2女，0未知
+      "userPhone": 13999999999              // string - 用户电话号码
+      "userAvatar": "/public/image/1.jpg"   // string - 用户头像
+      "schoolName": "四川大学",              // string - 学习名字
+      "schoolCampus": "江安校区",            // string - 校区
+      ......
+    }
+    
+    // error
+    {
+      "status": 404,                // number - 错误状态码 (HTTP状态码/自定义状态码)
+      "message": "page not found"   // string - 错误信息
+    }

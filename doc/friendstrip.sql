@@ -152,6 +152,17 @@ CREATE TABLE IF NOT EXISTS `Travels` (
   `data` int(11) NOT NULL COMMENT '游记发布时间'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+-- -------------------------------------------------------
+
+--
+-- 表的结构 `Token`
+--
+
+CREATE TABLE IF NOT EXISTS `Token` (
+  `user_id` INT(11) NOT NULL,
+  `token` VARCHAR(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARACTER SET=utf8;
+
 -- --------------------------------------------------------
 
 --
@@ -180,7 +191,8 @@ CREATE TABLE IF NOT EXISTS `User` (
   `phone` varchar(20) NOT NULL,
   `password` varchar(100) NOT NULL,
   `avatar` varchar(255) NOT NULL COMMENT '用户头像',
-  `school_id` int(11) NOT NULL COMMENT '学校id，关联School表'
+  `school_id` int(11) NOT NULL COMMENT '学校id，关联School表',
+  `school_campus` INT(11) NOT NULL COMMENT '校区'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
