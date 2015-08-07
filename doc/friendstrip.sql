@@ -88,11 +88,11 @@ CREATE TABLE IF NOT EXISTS `Comment` (
 --
 -- 表的结构 `Country` 省份
 --
-
-CREATE TABLE IF NOT EXISTS `Country` (
-  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `name` varchar(200) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+#
+# CREATE TABLE IF NOT EXISTS `Country` (
+#   `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+#   `name` varchar(200) NOT NULL
+# ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
