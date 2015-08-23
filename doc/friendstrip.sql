@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 2015-08-23 11:18:14
+-- Generation Time: 2015-08-23 11:34:58
 -- 服务器版本： 5.7.7-rc
 -- PHP Version: 5.5.26
 
@@ -19,6 +19,18 @@ SET time_zone = "+00:00";
 --
 -- Database: `friendstrip`
 --
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ft_ad`
+--
+
+CREATE TABLE IF NOT EXISTS `ft_ad` (
+  `ad_id` int(11) NOT NULL,
+  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `picture` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '[1.jpg,2.jpg]'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='首页轮播图';
 
 -- --------------------------------------------------------
 
@@ -59,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `ft_message` (
   `parent_id` int(11) NOT NULL COMMENT '上一条私信id',
   `senduser_id` int(11) NOT NULL COMMENT '发送者',
   `reciveuser_id` int(11) NOT NULL COMMENT '收接者',
-  `content` varchar(1000) NOT NULL COMMENT '私信内容'
+  `content` varchar(1000) COLLATE utf8_unicode_ci NOT NULL COMMENT '私信内容'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -70,16 +82,28 @@ CREATE TABLE IF NOT EXISTS `ft_message` (
 
 CREATE TABLE IF NOT EXISTS `ft_spot` (
   `spot_id` int(11) NOT NULL COMMENT '景区ID',
-  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '景区名',
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '景区名',
   `view_number` int(11) NOT NULL COMMENT '子景点数',
   `want_number` int(11) NOT NULL COMMENT '想去数',
   `went_number` int(11) NOT NULL COMMENT '去过数',
   `comment_number` int(11) NOT NULL COMMENT '评论数',
-  `country` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '所属省份',
-  `city` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '所属城市',
-  `picture` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '图册 [1.jpg,2,jpg,3.jpg]',
-  `description` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '景区描述'
+  `country` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '所属省份',
+  `city` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '所属城市',
+  `picture` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '图册 [1.jpg,2,jpg,3.jpg]',
+  `description` varchar(1000) COLLATE utf8_unicode_ci NOT NULL COMMENT '景区描述'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ft_token`
+--
+
+CREATE TABLE IF NOT EXISTS `ft_token` (
+  `token_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `token_value` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -108,14 +132,14 @@ CREATE TABLE IF NOT EXISTS `ft_trip` (
 
 CREATE TABLE IF NOT EXISTS `ft_user` (
   `user_id` int(11) NOT NULL,
-  `user_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '用户名',
-  `phone` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '手机',
-  `country` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '省份',
-  `city` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '城市',
-  `school` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '学校名',
-  `campus` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '校区',
-  `grade` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '年级',
-  `avatar` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '头像[1.jpg]',
+  `user_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '用户名',
+  `phone` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '手机',
+  `country` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '省份',
+  `city` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '城市',
+  `school` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '学校名',
+  `campus` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '校区',
+  `grade` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '年级',
+  `avatar` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '头像[1.jpg]',
   `gender` tinyint(1) NOT NULL COMMENT '性别 1boy,2girl',
   `date` int(11) NOT NULL COMMENT '注册时间'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='用户信息';
@@ -129,17 +153,17 @@ CREATE TABLE IF NOT EXISTS `ft_user` (
 CREATE TABLE IF NOT EXISTS `ft_view` (
   `view_id` int(11) NOT NULL COMMENT '景点ID',
   `spot_id` int(11) NOT NULL COMMENT '景区ID',
-  `location` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '详细地址',
-  `open_time` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '开放时间',
-  `play_time` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '游玩时间',
-  `phone` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '联系电话',
-  `price` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '门票价格',
-  `picture` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '图片名称，用英文逗号隔开；如[1.jpg,2.jpg]',
+  `location` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '详细地址',
+  `open_time` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '开放时间',
+  `play_time` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '游玩时间',
+  `phone` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '联系电话',
+  `price` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '门票价格',
+  `picture` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '图片名称，用英文逗号隔开；如[1.jpg,2.jpg]',
   `want_numebr` int(11) NOT NULL COMMENT '想去数',
   `went_number` int(11) NOT NULL COMMENT '去过数',
   `comment_number` int(11) NOT NULL COMMENT '评论数',
-  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '景点名',
-  `description` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '景点简介'
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '景点名',
+  `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '景点简介'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='景点表';
 
 -- --------------------------------------------------------
@@ -159,6 +183,12 @@ CREATE TABLE IF NOT EXISTS `ft_wantgo` (
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `ft_ad`
+--
+ALTER TABLE `ft_ad`
+ADD PRIMARY KEY (`ad_id`);
 
 --
 -- Indexes for table `ft_comment`
@@ -183,6 +213,12 @@ ADD PRIMARY KEY (`message_id`);
 --
 ALTER TABLE `ft_spot`
 ADD PRIMARY KEY (`spot_id`);
+
+--
+-- Indexes for table `ft_token`
+--
+ALTER TABLE `ft_token`
+ADD PRIMARY KEY (`token_id`);
 
 --
 -- Indexes for table `ft_trip`
@@ -213,6 +249,11 @@ ADD PRIMARY KEY (`wantgo_number`);
 --
 
 --
+-- AUTO_INCREMENT for table `ft_ad`
+--
+ALTER TABLE `ft_ad`
+MODIFY `ad_id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `ft_comment`
 --
 ALTER TABLE `ft_comment`
@@ -232,6 +273,11 @@ MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 ALTER TABLE `ft_spot`
 MODIFY `spot_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '景区ID';
+--
+-- AUTO_INCREMENT for table `ft_token`
+--
+ALTER TABLE `ft_token`
+MODIFY `token_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `ft_trip`
 --
