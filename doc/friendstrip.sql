@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 2015-08-23 11:34:58
+-- Generation Time: 2015-08-23 18:54:00
 -- 服务器版本： 5.7.7-rc
 -- PHP Version: 5.5.26
 
@@ -96,14 +96,45 @@ CREATE TABLE IF NOT EXISTS `ft_spot` (
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `ft_test`
+--
+
+CREATE TABLE IF NOT EXISTS `ft_test` (
+  `id` int(11) NOT NULL COMMENT '11',
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- 转存表中的数据 `ft_test`
+--
+
+INSERT INTO `ft_test` (`id`, `name`) VALUES
+(1, 'tttt'),
+(2, 'tttt'),
+(3, 'tttt'),
+(4, 'tttt'),
+(5, 'tttt'),
+(6, 'tttt');
+
+-- --------------------------------------------------------
+
+--
 -- 表的结构 `ft_token`
 --
 
 CREATE TABLE IF NOT EXISTS `ft_token` (
   `token_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `token_value` varchar(255) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `phone_id` int(11) NOT NULL,
+  `value` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- 转存表中的数据 `ft_token`
+--
+
+INSERT INTO `ft_token` (`token_id`, `phone_id`, `value`) VALUES
+(1, 1, 'token'),
+(2, 1, 'token');
 
 -- --------------------------------------------------------
 
@@ -132,17 +163,31 @@ CREATE TABLE IF NOT EXISTS `ft_trip` (
 
 CREATE TABLE IF NOT EXISTS `ft_user` (
   `user_id` int(11) NOT NULL,
-  `user_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '用户名',
+  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '用户名',
   `phone` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '手机',
-  `country` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '省份',
-  `city` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '城市',
-  `school` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '学校名',
-  `campus` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '校区',
-  `grade` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '年级',
-  `avatar` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '头像[1.jpg]',
-  `gender` tinyint(1) NOT NULL COMMENT '性别 1boy,2girl',
-  `date` int(11) NOT NULL COMMENT '注册时间'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='用户信息';
+  `country` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '省份',
+  `city` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '城市',
+  `school` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '学校名',
+  `campus` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '校区',
+  `grade` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '年级',
+  `avatar` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '头像[1.jpg]',
+  `gender` tinyint(1) DEFAULT NULL COMMENT '性别 1boy,2girl',
+  `date` int(11) NOT NULL COMMENT '注册时间',
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `address` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='用户信息';
+
+--
+-- 转存表中的数据 `ft_user`
+--
+
+INSERT INTO `ft_user` (`user_id`, `name`, `phone`, `country`, `city`, `school`, `campus`, `grade`, `avatar`, `gender`, `date`, `password`, `address`) VALUES
+(1, 'name', '110', 'country', 'city', 'school', 'campus', 'grade', '1.jpg', 1, 0, 'password', 'address'),
+(2, NULL, '110', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1440353736, 'password', NULL),
+(3, NULL, '110', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1440354234, 'password', NULL),
+(4, NULL, '110', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1440354242, 'password', NULL),
+(5, NULL, '110', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1440354243, 'password', NULL),
+(6, 'name', '110', NULL, NULL, 'school', 'campus', 'grade', NULL, 1, 1440354244, 'password', 'address');
 
 -- --------------------------------------------------------
 
@@ -188,61 +233,67 @@ CREATE TABLE IF NOT EXISTS `ft_wantgo` (
 -- Indexes for table `ft_ad`
 --
 ALTER TABLE `ft_ad`
-ADD PRIMARY KEY (`ad_id`);
+  ADD PRIMARY KEY (`ad_id`);
 
 --
 -- Indexes for table `ft_comment`
 --
 ALTER TABLE `ft_comment`
-ADD PRIMARY KEY (`comment_id`);
+  ADD PRIMARY KEY (`comment_id`);
 
 --
 -- Indexes for table `ft_join`
 --
 ALTER TABLE `ft_join`
-ADD PRIMARY KEY (`join_id`);
+  ADD PRIMARY KEY (`join_id`);
 
 --
 -- Indexes for table `ft_message`
 --
 ALTER TABLE `ft_message`
-ADD PRIMARY KEY (`message_id`);
+  ADD PRIMARY KEY (`message_id`);
 
 --
 -- Indexes for table `ft_spot`
 --
 ALTER TABLE `ft_spot`
-ADD PRIMARY KEY (`spot_id`);
+  ADD PRIMARY KEY (`spot_id`);
+
+--
+-- Indexes for table `ft_test`
+--
+ALTER TABLE `ft_test`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `ft_token`
 --
 ALTER TABLE `ft_token`
-ADD PRIMARY KEY (`token_id`);
+  ADD PRIMARY KEY (`token_id`);
 
 --
 -- Indexes for table `ft_trip`
 --
 ALTER TABLE `ft_trip`
-ADD PRIMARY KEY (`trip_id`);
+  ADD PRIMARY KEY (`trip_id`);
 
 --
 -- Indexes for table `ft_user`
 --
 ALTER TABLE `ft_user`
-ADD PRIMARY KEY (`user_id`);
+  ADD PRIMARY KEY (`user_id`);
 
 --
 -- Indexes for table `ft_view`
 --
 ALTER TABLE `ft_view`
-ADD PRIMARY KEY (`view_id`);
+  ADD PRIMARY KEY (`view_id`);
 
 --
 -- Indexes for table `ft_wantgo`
 --
 ALTER TABLE `ft_wantgo`
-ADD PRIMARY KEY (`wantgo_number`);
+  ADD PRIMARY KEY (`wantgo_number`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -252,52 +303,57 @@ ADD PRIMARY KEY (`wantgo_number`);
 -- AUTO_INCREMENT for table `ft_ad`
 --
 ALTER TABLE `ft_ad`
-MODIFY `ad_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ad_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `ft_comment`
 --
 ALTER TABLE `ft_comment`
-MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `ft_join`
 --
 ALTER TABLE `ft_join`
-MODIFY `join_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `join_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `ft_message`
 --
 ALTER TABLE `ft_message`
-MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `ft_spot`
 --
 ALTER TABLE `ft_spot`
-MODIFY `spot_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '景区ID';
+  MODIFY `spot_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '景区ID';
+--
+-- AUTO_INCREMENT for table `ft_test`
+--
+ALTER TABLE `ft_test`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '11',AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `ft_token`
 --
 ALTER TABLE `ft_token`
-MODIFY `token_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `token_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `ft_trip`
 --
 ALTER TABLE `ft_trip`
-MODIFY `trip_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `trip_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `ft_user`
 --
 ALTER TABLE `ft_user`
-MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `ft_view`
 --
 ALTER TABLE `ft_view`
-MODIFY `view_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '景点ID';
+  MODIFY `view_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '景点ID';
 --
 -- AUTO_INCREMENT for table `ft_wantgo`
 --
 ALTER TABLE `ft_wantgo`
-MODIFY `wantgo_number` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `wantgo_number` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
