@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <include 
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        layout="@layout/include_head_viewdetail"/>
+    <RelativeLayout
+        android:id="@+id/banner_container_spot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"        
+        android:background="@color/grey" >
+
+        <include
+            android:id="@+id/banner_jazzyview_viewDetail"
+            
+            layout="@layout/include_banner" />
+         <TextView
+            android:id="@+id/txt_name_viewDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_orange_light"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="90dp"
+            android:text="锦里" />
+
+        <TextView
+            android:id="@+id/txt_describe_viewDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_name_viewDetail"
+            android:layout_marginLeft="10dp"
+            android:textColor="@android:color/holo_orange_light"
+            android:ellipsize="end"
+            android:maxWidth="250dp"
+            android:text="锦里，成都的地中海！" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/common_list_divider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:alpha="0.4"
+        android:background="@drawable/feedback_button_bg" >
+
+        <LinearLayout
+            android:id="@+id/linear_comNum_viewDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:gravity="center"            
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:src="@drawable/hots_comment" />
+
+            <TextView
+                android:id="@+id/txt_comNum_viewDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="235人评论" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_goneNum_viewDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:src="@drawable/failure_nodata" />
+
+            <TextView
+                android:id="@+id/txt_goneNum_viewDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="400人去过" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_wantNum_viewDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:src="@drawable/collection_big" />
+
+            <TextView
+                android:id="@+id/txt_wantNum_viewDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="568人想去" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/common_list_divider"
+        android:text="TextView" />
+
+    <FrameLayout
+        android:id="@+id/content_viewDetail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp" >
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="   地址    ：" />
+
+                <TextView
+                    android:id="@+id/txt_address_viewDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="四川省成都市武侯祠大街231号附一号 " />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp" >
+
+                <TextView
+                    android:id="@+id/TextView02"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="开放时间：" />
+
+                <TextView
+                    android:id="@+id/txt_openT_viewDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5:00-23:00（亮灯时间20:00）" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp" >
+
+                <TextView
+                    android:id="@+id/TextView022"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="游玩时间：" />
+
+                <TextView
+                    android:id="@+id/txt_playT_viewDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="建议3小时" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp" >
+
+                <TextView
+                    android:id="@+id/TextView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="联系电话：" />
+
+                <TextView
+                    android:id="@+id/txt_phone_viewDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="15833945591" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp" >
+
+                <TextView
+                    android:id="@+id/TextView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="门票信息：" />
+
+                <TextView
+                    android:id="@+id/txt_price_viewDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="【免费】" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp" >
+
+                <TextView
+                    android:id="@+id/TextView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="   简介    ：" />
+
+                <TextView
+                    android:id="@+id/TextView01"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="传说中锦里曾是西蜀历史上最古老，最具有商业气息的，早在、三国时期便闻名全国。现在占地3000余平方米。。。  " />
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@string/head_bar_width"
+    android:layout_height="@dimen/head_bar_height"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:background="@android:color/holo_blue_bright"
+    android:orientation="horizontal" >
+
+    <ImageButton
+        android:id="@+id/btn_menu"
+        android:layout_width="40dp"
+        android:layout_height="35dp"
+        android:layout_gravity="left|center_vertical"
+        android:background="@drawable/round_button_shap"
+        android:contentDescription="Left Menu Open Button"
+        android:src="@drawable/title_bar_menu" />
+
+    <AutoCompleteTextView
+        android:id="@+id/txt_search_basic"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_weight="1"
+        android:background="@drawable/round_edit_shap1"
+        android:ems="10"
+        android:gravity="center_vertical"
+        android:hint="省份、城市、景区"
+        android:singleLine="true" >
+
+        <requestFocus />
+    </AutoCompleteTextView>
+
+    
+
+    <TextView
+        android:id="@+id/txt_Citys"
+        android:layout_width="60dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center_vertical|right"
+        android:background="@drawable/round_button_shap"
+        android:drawableLeft="@android:drawable/arrow_down_float"
+        android:fadingEdge="horizontal"
+        android:paddingTop="5dp"
+        android:text="成都"
+        android:textColor="@color/grey"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColorLink="@color/blue"
+        android:textSize="20sp" />
+
+</LinearLayout>

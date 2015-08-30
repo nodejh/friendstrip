@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/blue"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="完善信息便于您使用服务"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:width="160dp" />
+
+    <TableLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal" >
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            
+            android:layout_marginTop="20dp" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="姓名："
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <EditText
+                android:id="@+id/edit_name_complete"
+                android:layout_width="@dimen/edit_width"
+                android:layout_height="@dimen/edit_height"
+                android:ems="10"
+                android:background="@drawable/round_edit_shap1"
+                android:hint="您的姓名" >
+                
+                <requestFocus />
+            </EditText>
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp" >
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="性别："
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <EditText
+                android:id="@+id/edit_sex_complete"
+                android:layout_width="@dimen/edit_width"
+                android:layout_height="@dimen/edit_height"
+                android:ems="10"
+                android:background="@drawable/round_edit_shap1"
+                android:hint="您的性别" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp" >
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="学校："
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <EditText
+                android:id="@+id/edit_school_complete"
+                android:layout_width="@dimen/edit_width"
+                android:layout_height="@dimen/edit_height"
+                android:ems="10"
+                android:background="@drawable/round_edit_shap1"
+                android:hint="您的学校" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp" >
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="校区："
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <EditText
+                android:id="@+id/edit_compus_complete"
+                android:layout_width="@dimen/edit_width"
+                android:layout_height="@dimen/edit_height"
+                android:ems="10"
+                android:background="@drawable/round_edit_shap1"
+                android:hint="您所在校区" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp" >
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="年级"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <EditText
+                android:id="@+id/edit_grade_complete"
+                android:layout_width="@dimen/edit_width"
+                android:layout_height="@dimen/edit_height"
+                android:ems="10"
+                android:background="@drawable/round_edit_shap1"
+                android:hint="您的年级" />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <Button
+        android:id="@+id/btn_finished_signfm"
+        android:layout_width="84dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/round_button_shap"
+        android:text="完成" />
+
+</LinearLayout>

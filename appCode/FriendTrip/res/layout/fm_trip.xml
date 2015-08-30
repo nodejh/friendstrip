@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/txt_where"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="四川大学"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="小伙伴的出行消息" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/trip_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <com.handmark.pulltorefresh.library.PullToRefreshListView
+        xmlns:ptr="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/trip_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:cacheColorHint="#000000"
+        android:divider="#19000000"
+        android:dividerHeight="4dp"
+        android:fadingEdge="vertical"
+        android:fastScrollEnabled="false"
+        android:footerDividersEnabled="true"
+        android:headerDividersEnabled="true"
+        android:smoothScrollbar="true" 
+        ptr:ptrAnimationStyle="flip"
+        ptr:ptrHeaderTextColor="#ffffff"
+        ptr:ptrHeaderSubTextColor="#00ffff"
+        ptr:ptrHeaderBackground="@color/grey"
+        ptr:ptrDrawable="@drawable/loading5"/>
+
+    </FrameLayout>
+
+</LinearLayout>

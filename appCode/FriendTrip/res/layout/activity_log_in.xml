@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/default_bg"
+    android:orientation="vertical" >
+
+    <TableLayout
+        android:id="@+id/tableLayout1"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:shrinkColumns="2"
+        android:stretchColumns="2" >
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_gravity="center" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="登录 ："
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/grey" />
+
+            <AutoCompleteTextView
+                android:id="@+id/edit_account_login"
+                android:layout_width="@dimen/edit_width"
+                android:layout_height="@dimen/edit_height"
+                android:background="@drawable/round_edit_shap1"
+                android:ellipsize="end"
+                android:hint="手机号/邮箱/账号"
+                android:textSize="15sp"
+                android:ems="10"
+                android:singleLine="true" >
+     
+                <requestFocus />
+            </AutoCompleteTextView>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp" >
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="密码 ："
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/grey" />
+
+            <AutoCompleteTextView
+                android:id="@+id/edit_pwd_login"
+                android:layout_width="@dimen/edit_width"
+                android:layout_height="@dimen/edit_height"
+                android:background="@drawable/round_edit_shap1"
+                android:hint="请输入密码"
+                android:textSize="15sp"
+                android:inputType="textPassword"
+                android:ems="10" />
+        </TableRow>
+
+        <LinearLayout
+            android:id="@+id/LinearLayout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp" >
+
+            <TextView
+                android:id="@+id/txt_forgetpwd_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="忘记密码？"
+                android:textColor="@android:color/holo_blue_dark"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/txt_sign_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="15sp"
+                android:text="快速注册"
+                
+                android:textColor="@color/blue" />
+
+        </LinearLayout>
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="75dp"
+        android:fontFamily="@android:string/httpErrorUnsupportedScheme"
+        android:text="友你伴我"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/FF545A"
+        android:textSize="30sp"
+        android:textStyle="italic" />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/tableLayout1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:alpha="0.7"
+        android:background="@drawable/round_button_shap"
+        android:text="登录" />
+
+</RelativeLayout>

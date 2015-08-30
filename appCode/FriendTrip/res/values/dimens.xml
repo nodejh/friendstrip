@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Item Dimens -->
+    <dimen name="item_image_Width">100dp</dimen>
+    <dimen name="item_image_Height">100dp</dimen>
+    <dimen name="item_layout_padding">5dp</dimen>
+    <dimen name="item_layout_Height">110dp</dimen>
+    <!-- textView Dimens -->
+    <dimen name="txt_spot_width">100dp</dimen>
+    <dimen name="txt_spot_Size">15sp</dimen>
+    <dimen name="txt_focus_Size">10sp</dimen>
+    
+    <dimen name="edit_width">200dp</dimen>
+    <dimen name="edit_height">40dp</dimen>
+    <!-- spot detail dimens -->
+    
+    
+    <dimen name="head_bar_height">40dp</dimen>
+    
+    <dimen name="banner_image_height">150dp</dimen>
+    
+    <!-- tabs dimens -->
+    
+    
+    <!-- pull to refresh -->
+    <dimen name="indicator_right_padding">10dp</dimen>
+    <dimen name="indicator_corner_radius">12dp</dimen>
+    <dimen name="indicator_internal_padding">4dp</dimen>
+    <dimen name="header_footer_left_right_padding">24dp</dimen>
+    <dimen name="header_footer_top_bottom_padding">12dp</dimen>
+</resources>
