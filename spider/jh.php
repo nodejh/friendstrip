@@ -56,7 +56,8 @@ class Spider extends DB {
                 foreach ($view_url_list as $view_url_item) {
                     $view_url = pq($view_url_item)->attr('href');
                     echo '景点URL'. $j . ':' . $view_url . PHP_EOL;
-                    $view_id = $this->save_view($url, $spot_id);
+                    $view_id = $this->save_view($view_url, $spot_id);
+                    echo '当前插入的景点id：' . $view_id .PHP_EOL;
                 }
 
             }
@@ -91,7 +92,6 @@ class Spider extends DB {
         }
         $data['picture'] = rtrim($data['picture'], ',');
 
-        $data['name'] = '我';
 
         $sql = "INSERT INTO ft_spot(name,want_number,went_number,comment_number,country,city,description,picture) VALUES  (:name,:want_number,:went_number,:comment_number,:country,:city,:description,:picture)";
 
@@ -107,7 +107,7 @@ class Spider extends DB {
         $stmt->bindparam(':picture', $data['picture']);
 
         if($stmt->execute()){
-            echo "最后插入的ID:".$this->db->lastInsertId();
+            echo "最后插入的ID:".$this->db->lastInsertId().PHP_EOL;
             return $this->db->lastInsertId();
         } else {
             var_dump('fail to insert to database');
@@ -144,7 +144,7 @@ class Spider extends DB {
         }
         $data['picture'] = rtrim($data['picture'], ',');
 
-        var_dump($data);
+        //var_dump($data);
         //$data['name'] = 'dadf';
         //$data['want_number'] = 200;
         //$data['went_number'] = 100;
@@ -176,9 +176,9 @@ class Spider extends DB {
         $stmt->bindparam(':comment_number', $data['comment_number']);
         $stmt->bindparam(':description', $data['description']);
 
-        var_dump($data);
+        //var_dump($data);
         if($stmt->execute()){
-            echo "最后插入的ID:".$this->db->lastInsertId();
+            echo "最后插入的ID:".$this->db->lastInsertId() . PHP_EOL;
             return $this->db->lastInsertId();
         } else {
             echo 'fail to insert to database' . PHP_EOL;
@@ -197,13 +197,22 @@ class Spider extends DB {
         $html = htmlspecialchars($string);
         $no_html = strip_tags($html);
         $res = mb_ereg_replace('(　| )+$', '', $no_html);
-        //$res = preg_replace('/\s|　/','',$res);
-        //$res = mb_convert_encoding($res, "UTF-8", "GBK");
-        //$res = mb_convert_encoding($res,'utf-8','gbk');
-        return $res;
+        return $this->trimall($res);
     }
 
-    //download_img('http://qlogo2.store.qq.com/qzone/393183837/393183837/50');
+
+    /**
+     * 去掉所有空格
+     * @param $str
+     * @return mixed
+     */
+    public function trimall($str)//删除空格
+    {
+        $qian=array(" ","　","\t","\n","\r");
+        $hou=array("","","","","");
+        return str_replace($qian,$hou,$str);
+    }
+
 
     /**
      * 下载图片到本地
@@ -225,11 +234,14 @@ class Spider extends DB {
 }
 
 $spider = new Spider();
+
+$spider->main();
+
 //save_spot('http://www.lvmama.com/lvyou/d-chengdu279.html');
 
 //$spider->save_view('http://www.lvmama.com/lvyou/poi/sight-151780.html', 1);
 
-$spider->save_spot('http://www.lvmama.com/lvyou/d-chengdu279.html');
+//$spider->save_spot('http://www.lvmama.com/lvyou/d-chengdu279.html');
 
 
 /*
