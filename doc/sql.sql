@@ -3,13 +3,16 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 2015-10-01 20:43:26
+-- Generation Time: 2015-08-23 18:54:00
 -- 服务器版本： 5.7.7-rc
 -- PHP Version: 5.5.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+SET GLOBAL character_set_database=utf8;
+SET GLOBAL character_set_server=utf8;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -17,7 +20,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ft`
+-- Database: `friendstrip`
 --
 
 -- --------------------------------------------------------
@@ -28,8 +31,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `ft_ad` (
   `ad_id` int(11) NOT NULL,
-  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `picture` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '[1.jpg,2.jpg]'
+  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `picture` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '[1.jpg,2.jpg]'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='首页轮播图';
 
 -- --------------------------------------------------------
@@ -41,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `ft_ad` (
 CREATE TABLE IF NOT EXISTS `ft_comment` (
   `comment_id` int(11) NOT NULL,
   `type` tinyint(1) NOT NULL COMMENT '类型.1 景区  2 景点',
-  `content` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '内容',
+  `content` varchar(1000) COLLATE utf8_unicode_ci NOT NULL COMMENT '内容',
   `user_id` int(11) NOT NULL COMMENT '评论者ID',
   `spotview_id` int(11) NOT NULL COMMENT '所属景区（景点）ID',
   `date` int(11) NOT NULL COMMENT '评论时间'
@@ -90,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `ft_spot` (
   `city` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '所属城市',
   `picture` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '图册 [1.jpg,2,jpg,3.jpg]',
   `description` varchar(1000) COLLATE utf8_unicode_ci NOT NULL COMMENT '景区描述'
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -108,12 +111,12 @@ CREATE TABLE IF NOT EXISTS `ft_test` (
 --
 
 INSERT INTO `ft_test` (`id`, `name`) VALUES
-  (1, 'tttt'),
-  (2, 'tttt'),
-  (3, 'tttt'),
-  (4, 'tttt'),
-  (5, 'tttt'),
-  (6, 'tttt');
+(1, 'tttt'),
+(2, 'tttt'),
+(3, 'tttt'),
+(4, 'tttt'),
+(5, 'tttt'),
+(6, 'tttt');
 
 -- --------------------------------------------------------
 
@@ -132,8 +135,8 @@ CREATE TABLE IF NOT EXISTS `ft_token` (
 --
 
 INSERT INTO `ft_token` (`token_id`, `phone_id`, `value`) VALUES
-  (1, 1, 'token'),
-  (2, 1, 'token');
+(1, 1, 'token'),
+(2, 1, 'token');
 
 -- --------------------------------------------------------
 
@@ -145,11 +148,11 @@ CREATE TABLE IF NOT EXISTS `ft_trip` (
   `trip_id` int(11) NOT NULL,
   `type` tinyint(1) NOT NULL COMMENT '1  表示景区（城市） 2 表示景点   {因为景点、景区都有出行记录和发布出行的功能，12统一表现为游玩}  3表示拼车',
   `spotview_id` int(11) NOT NULL DEFAULT '0' COMMENT '出行来源景区（景点）ID; 0 为直接发布',
-  `start_school` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '始发学校',
-  `destination` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '目的地',
+  `start_school` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '始发学校',
+  `destination` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '目的地',
   `start_time` int(11) NOT NULL COMMENT '出发时间',
   `date` int(11) NOT NULL COMMENT '发起时间',
-  `more_info` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '附加信息',
+  `more_info` varchar(1000) COLLATE utf8_unicode_ci NOT NULL COMMENT '附加信息',
   `people_number` int(11) NOT NULL COMMENT '期望人数',
   `people_hadnum` int(11) NOT NULL COMMENT '已有人数'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='出行，游玩/拼车';
@@ -162,18 +165,18 @@ CREATE TABLE IF NOT EXISTS `ft_trip` (
 
 CREATE TABLE IF NOT EXISTS `ft_user` (
   `user_id` int(11) NOT NULL,
-  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '用户名',
-  `phone` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '手机',
-  `country` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '省份',
-  `city` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '城市',
-  `school` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '学校名',
-  `campus` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '校区',
-  `grade` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '年级',
-  `avatar` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '头像[1.jpg]',
+  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '用户名',
+  `phone` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '手机',
+  `country` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '省份',
+  `city` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '城市',
+  `school` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '学校名',
+  `campus` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '校区',
+  `grade` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '年级',
+  `avatar` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '头像[1.jpg]',
   `gender` tinyint(1) DEFAULT NULL COMMENT '性别 1boy,2girl',
   `date` int(11) NOT NULL COMMENT '注册时间',
-  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `address` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `address` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='用户信息';
 
 --
@@ -181,12 +184,12 @@ CREATE TABLE IF NOT EXISTS `ft_user` (
 --
 
 INSERT INTO `ft_user` (`user_id`, `name`, `phone`, `country`, `city`, `school`, `campus`, `grade`, `avatar`, `gender`, `date`, `password`, `address`) VALUES
-  (1, 'name', '110', 'country', 'city', 'school', 'campus', 'grade', '1.jpg', 1, 0, 'password', 'address'),
-  (2, NULL, '110', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1440353736, 'password', NULL),
-  (3, NULL, '110', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1440354234, 'password', NULL),
-  (4, NULL, '110', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1440354242, 'password', NULL),
-  (5, NULL, '110', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1440354243, 'password', NULL),
-  (6, 'name', '110', NULL, NULL, 'school', 'campus', 'grade', NULL, 1, 1440354244, 'password', 'address');
+(1, 'name', '110', 'country', 'city', 'school', 'campus', 'grade', '1.jpg', 1, 0, 'password', 'address'),
+(2, NULL, '110', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1440353736, 'password', NULL),
+(3, NULL, '110', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1440354234, 'password', NULL),
+(4, NULL, '110', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1440354242, 'password', NULL),
+(5, NULL, '110', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1440354243, 'password', NULL),
+(6, 'name', '110', NULL, NULL, 'school', 'campus', 'grade', NULL, 1, 1440354244, 'password', 'address');
 
 -- --------------------------------------------------------
 
@@ -197,17 +200,17 @@ INSERT INTO `ft_user` (`user_id`, `name`, `phone`, `country`, `city`, `school`, 
 CREATE TABLE IF NOT EXISTS `ft_view` (
   `view_id` int(11) NOT NULL COMMENT '景点ID',
   `spot_id` int(11) NOT NULL COMMENT '景区ID',
-  `location` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '详细地址',
-  `open_time` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '开放时间',
-  `play_time` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '游玩时间',
-  `phone` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '联系电话',
-  `price` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '门票价格',
-  `picture` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '图片名称，用英文逗号隔开；如[1.jpg,2.jpg]',
+  `location` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '详细地址',
+  `open_time` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '开放时间',
+  `play_time` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '游玩时间',
+  `phone` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '联系电话',
+  `price` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '门票价格',
+  `picture` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '图片名称，用英文逗号隔开；如[1.jpg,2.jpg]',
   `want_number` int(11) NOT NULL COMMENT '想去数',
   `went_number` int(11) NOT NULL COMMENT '去过数',
   `comment_number` int(11) NOT NULL COMMENT '评论数',
-  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '景点名',
-  `description` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '景点简介'
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '景点名',
+  `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '景点简介'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='景点表';
 
 -- --------------------------------------------------------
@@ -221,7 +224,7 @@ CREATE TABLE IF NOT EXISTS `ft_wantgo` (
   `type` tinyint(1) NOT NULL COMMENT '1 表示想去景点，2 表示想去景区',
   `user_id` int(11) NOT NULL COMMENT '用户ID',
   `time` int(11) NOT NULL COMMENT '点击想去的时间',
-  `gps` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '该人点击时的GPS坐标'
+  `gps` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '该人点击时的GPS坐标'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='想去';
 
 --
@@ -232,67 +235,67 @@ CREATE TABLE IF NOT EXISTS `ft_wantgo` (
 -- Indexes for table `ft_ad`
 --
 ALTER TABLE `ft_ad`
-ADD PRIMARY KEY (`ad_id`);
+  ADD PRIMARY KEY (`ad_id`);
 
 --
 -- Indexes for table `ft_comment`
 --
 ALTER TABLE `ft_comment`
-ADD PRIMARY KEY (`comment_id`);
+  ADD PRIMARY KEY (`comment_id`);
 
 --
 -- Indexes for table `ft_join`
 --
 ALTER TABLE `ft_join`
-ADD PRIMARY KEY (`join_id`);
+  ADD PRIMARY KEY (`join_id`);
 
 --
 -- Indexes for table `ft_message`
 --
 ALTER TABLE `ft_message`
-ADD PRIMARY KEY (`message_id`);
+  ADD PRIMARY KEY (`message_id`);
 
 --
 -- Indexes for table `ft_spot`
 --
 ALTER TABLE `ft_spot`
-ADD PRIMARY KEY (`spot_id`);
+  ADD PRIMARY KEY (`spot_id`);
 
 --
 -- Indexes for table `ft_test`
 --
 ALTER TABLE `ft_test`
-ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `ft_token`
 --
 ALTER TABLE `ft_token`
-ADD PRIMARY KEY (`token_id`);
+  ADD PRIMARY KEY (`token_id`);
 
 --
 -- Indexes for table `ft_trip`
 --
 ALTER TABLE `ft_trip`
-ADD PRIMARY KEY (`trip_id`);
+  ADD PRIMARY KEY (`trip_id`);
 
 --
 -- Indexes for table `ft_user`
 --
 ALTER TABLE `ft_user`
-ADD PRIMARY KEY (`user_id`);
+  ADD PRIMARY KEY (`user_id`);
 
 --
 -- Indexes for table `ft_view`
 --
 ALTER TABLE `ft_view`
-ADD PRIMARY KEY (`view_id`);
+  ADD PRIMARY KEY (`view_id`);
 
 --
 -- Indexes for table `ft_wantgo`
 --
 ALTER TABLE `ft_wantgo`
-ADD PRIMARY KEY (`wantgo_number`);
+  ADD PRIMARY KEY (`wantgo_number`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -302,57 +305,57 @@ ADD PRIMARY KEY (`wantgo_number`);
 -- AUTO_INCREMENT for table `ft_ad`
 --
 ALTER TABLE `ft_ad`
-MODIFY `ad_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ad_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `ft_comment`
 --
 ALTER TABLE `ft_comment`
-MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `ft_join`
 --
 ALTER TABLE `ft_join`
-MODIFY `join_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `join_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `ft_message`
 --
 ALTER TABLE `ft_message`
-MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `ft_spot`
 --
 ALTER TABLE `ft_spot`
-MODIFY `spot_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '景区ID',AUTO_INCREMENT=6;
+  MODIFY `spot_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '景区ID';
 --
 -- AUTO_INCREMENT for table `ft_test`
 --
 ALTER TABLE `ft_test`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '11',AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '11',AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `ft_token`
 --
 ALTER TABLE `ft_token`
-MODIFY `token_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `token_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `ft_trip`
 --
 ALTER TABLE `ft_trip`
-MODIFY `trip_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `trip_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `ft_user`
 --
 ALTER TABLE `ft_user`
-MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `ft_view`
 --
 ALTER TABLE `ft_view`
-MODIFY `view_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '景点ID';
+  MODIFY `view_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '景点ID';
 --
 -- AUTO_INCREMENT for table `ft_wantgo`
 --
 ALTER TABLE `ft_wantgo`
-MODIFY `wantgo_number` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `wantgo_number` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
