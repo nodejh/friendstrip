@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/item_layout_Height"
+    android:orientation="horizontal"
+    android:padding="@dimen/item_layout_padding" >
+
+    <ImageView
+        android:id="@+id/img_spotCover"
+        android:layout_width="@dimen/item_image_Width"
+        android:layout_height="@dimen/item_image_Height"
+        android:scaleType="fitXY"
+        android:src="@drawable/chengdu6" />
+
+    <RelativeLayout
+        android:id="@+id/spot_content"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="5dp"
+        android:orientation="vertical" >
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="5dp" >
+
+            <TextView
+                android:id="@+id/txt_name_spot"
+                android:layout_width="@dimen/txt_spot_width"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:lines="1"
+                android:singleLine="true"
+                android:text="成都-杜甫祠堂"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textSize="@dimen/txt_spot_Size" />
+
+            <TextView
+                android:id="@+id/txt_focus_spot"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:text="820人关注"
+                android:textColor="@color/red"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="@dimen/txt_focus_Size" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/tableRow1"
+            android:layout_marginTop="5dp" >
+
+            <TextView
+                android:id="@+id/txt_childViewNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:text="10个景点"
+                android:textSize="10sp"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/tableRow2"
+            android:layout_marginTop="5dp" >
+
+            <TextView
+                android:id="@+id/txt_describe_spot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:text="尿素佛ISO服务未访问所谓的附件为空" />
+        </TableRow>
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <AutoCompleteTextView
+        android:id="@+id/edit_phone_signfm"
+        android:layout_width="@dimen/edit_width"
+        android:layout_height="@dimen/edit_height"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/round_edit_shap1"
+        android:ems="10"
+        android:hint="手机号码" >
+
+        <requestFocus />
+    </AutoCompleteTextView>
+
+    <LinearLayout
+        android:layout_width="@dimen/edit_width"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp" >
+
+        <AutoCompleteTextView
+            android:id="@+id/edit_testCode_signfm"
+            android:layout_width="100dp"
+            android:layout_height="@dimen/edit_height"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/round_edit_shap1"
+            android:ems="10"
+            android:hint="验证码" />
+
+        <Button
+            android:id="@+id/btn_getTestCode_signfm"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_button_shap1"
+            android:text="验证码"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/edit_pwd_signfm"
+        android:layout_width="@dimen/edit_width"
+        android:layout_height="@dimen/edit_height"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:background="@drawable/round_edit_shap1"
+        android:hint="请输入密码"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/edit_rePwd_signfm"
+        android:layout_width="@dimen/edit_width"
+        android:layout_height="@dimen/edit_height"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:background="@drawable/round_edit_shap1"
+        android:hint="请再次输入密码"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/btn_sign"
+        android:layout_width="85dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:text="注册"
+        android:background="@drawable/round_button_shap" />
+
+</LinearLayout>

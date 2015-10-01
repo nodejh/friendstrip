@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <com.handmark.pulltorefresh.library.PullToRefreshListView 
+        xmlns:ptr="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/view_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="#000000"
+        android:divider="#19000000"
+        android:dividerHeight="4dp"
+        android:fadingEdge="vertical"
+        android:fastScrollEnabled="false"
+        android:footerDividersEnabled="true"
+        android:headerDividersEnabled="true"
+        android:smoothScrollbar="true"
+        ptr:ptrAnimationStyle="flip"
+        ptr:ptrDrawable="@drawable/loading5"
+        ptr:ptrHeaderBackground="@color/grey"
+        ptr:ptrHeaderSubTextColor="#00ffff"
+        ptr:ptrHeaderTextColor="#ffffff" />
+

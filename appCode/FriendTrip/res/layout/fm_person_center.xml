@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/greytow" >
+
+        <ImageView
+            android:id="@+id/img_person_pCneter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="false"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/touxiang" />
+
+        <TextView
+            android:id="@+id/txt_name_pCenter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="TextView"
+            tools:ignore="HardcodedText" />
+
+        
+    </RelativeLayout>
+
+    <TextView
+            
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@color/black"
+            
+            android:text=" " />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="个人中心：" />
+    <TextView
+            
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            
+            android:background="@color/grey"
+            android:text=" " />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/linear_myMsg_pCenter"
+            android:layout_height="35dp"
+            android:layout_width="match_parent"
+           
+             >
+
+            <TextView
+                android:id="@+id/txt_myMsg_pCenter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+               
+                android:layout_weight="1"
+                android:text="我的信息"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:typeface="serif" />
+
+            <TextView
+                android:id="@+id/txt_MsgArrow_pCenter_"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:drawableRight="@drawable/arrow_right_normal"
+               
+                android:gravity="center"
+                android:text="10 "
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        </LinearLayout>
+
+        <TextView
+            
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            
+            android:background="@color/grey"
+            android:text=" " />
+
+        <LinearLayout
+            android:id="@+id/linear_myJoin_pCenter"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+             >
+
+            <TextView
+                android:id="@+id/txt_myJoin_pCenter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+               
+                android:layout_weight="1"
+                android:text="我的加入"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:typeface="serif" />
+
+            <TextView
+                android:id="@+id/txt_JoinArrow_pCenter"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:drawableRight="@drawable/arrow_right_normal"
+               
+                android:gravity="center"
+                android:text="5 "
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </LinearLayout>
+         <TextView
+            
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey"
+            android:text=" " />
+        <LinearLayout
+            android:id="@+id/linear_myRelease_pCenter"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+             >
+
+            <TextView
+                android:id="@+id/txt_myRelease_pCenter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                
+                android:layout_weight="1"
+                android:text="我的发布"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:typeface="serif" />
+
+            <TextView
+                android:id="@+id/txt_ReleaseArrow_pCenter"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:drawableRight="@drawable/arrow_right_normal"
+                               
+                android:gravity="center"
+                android:text="2 "
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </LinearLayout>
+        <TextView
+            
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey"
+            android:text=" " />
+        <LinearLayout
+            android:id="@+id/linear_myComment_pCenter"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+             >
+
+            <TextView
+                android:id="@+id/txt_myComment_pCenter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                
+                android:layout_weight="1"
+                android:text="我的评论"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:typeface="serif" />
+
+            <TextView
+                android:id="@+id/txt_CommentArrow_pCenter"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:drawableRight="@drawable/arrow_right_normal"
+               
+                android:gravity="center"
+                android:text="15 "
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </LinearLayout>
+    </LinearLayout>
+    
+    <TextView
+            
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey"
+            android:text=" " />
+    <Button
+        android:id="@+id/btn_release_pCenter"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="45dp"
+        android:background="@drawable/round_button_shap"
+        android:text="发布出行"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:typeface="serif" />
+
+</LinearLayout>

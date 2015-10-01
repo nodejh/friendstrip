@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.malingyi.friendwithme.ui.component.jazzviewpager.JazzyViewPager
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/banner_jazzyview"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/banner_image_height"
+    android:layout_marginLeft="3dp"
+    android:layout_marginRight="3dp" >
+
+</com.malingyi.friendwithme.ui.component.jazzviewpager.JazzyViewPager>

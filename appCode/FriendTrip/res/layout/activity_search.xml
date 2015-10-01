@@ -1,0 +1,115 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <ImageView
+        
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@android:color/darker_gray" />
+
+    <LinearLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+        android:background="@android:color/holo_blue_bright" >
+
+        <ImageButton
+            android:id="@+id/btn_back_search"
+            android:layout_width="35dp"
+            android:layout_height="38dp"
+            android:layout_gravity="center_vertical"
+            android:alpha="0.5"
+            android:background="@drawable/circle_searchview_shap1"
+            android:contentDescription="Left Menu Open Button"
+            android:src="@drawable/back_left_black" />
+
+        <AutoCompleteTextView
+            android:id="@+id/edit_search_search"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/round_searchedit_shap"
+            android:ems="10"
+            android:gravity="center_vertical"
+            android:hint="省份、城市、景区"
+            android:singleLine="true" />
+
+        <ImageButton
+            android:id="@+id/btn_search"
+            android:layout_width="35dp"
+            android:layout_height="38dp"
+            android:layout_gravity="center_vertical"
+            android:alpha="0.5"
+            android:background="@drawable/circle_searchview_shap1"
+            android:src="@drawable/umeng_socialize_search_icon" />
+
+    </LinearLayout>
+
+     <ImageView
+        
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/darker_gray" />
+
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:divider="@color/grey"
+          >
+
+         <TextView
+             android:id="@+id/txt_all_search"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="所有景区"
+             android:gravity="center"
+             android:layout_weight="1"
+             android:background="@color/grey"
+             android:textAppearance="?android:attr/textAppearanceLarge" />
+
+         <TextView
+             android:id="@+id/txt_hot_search"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="热门景区"
+             android:gravity="center"
+             android:layout_weight="1"
+             android:textAppearance="?android:attr/textAppearanceLarge" />
+
+     </LinearLayout>
+
+     <FrameLayout
+         android:id="@+id/result_container_search"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:padding="1dp" >
+        <android.support.v4.view.ViewPager 
+            android:id="@+id/viewPager_searched"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+     </FrameLayout>
+
+     <AutoCompleteTextView
+         android:id="@+id/autoCompleteTextView1"
+         android:layout_width="0dp"
+         android:layout_height="0dp"
+         android:ems="10"
+         android:text="AutoCompleteTextView"
+         android:focusable="true"
+          >
+
+         <requestFocus />
+     </AutoCompleteTextView>
+
+</LinearLayout>
