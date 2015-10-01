@@ -49,7 +49,7 @@
     // 客户端
     {
       "phone": "phone",
-       "password": "password"
+      "password": "password"
     }
   
     // 服务端

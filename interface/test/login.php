@@ -35,7 +35,7 @@ if (isset($data['phone']) && isset($data['password'])) {
     $result['message'] = '用户名或密码为空';
 }
 
-echo (json_encode($result));
+//echo (json_encode($result));
 
 
 ?>
