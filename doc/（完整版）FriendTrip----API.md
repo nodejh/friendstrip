@@ -308,11 +308,11 @@
          "uid":"发布者ID",
          "oriCity":"始发城市；如：成都",
          "oriSchool":"始发学校；如：四川大学"，
-         "destName":"目的地名；如：峨眉山、锦里。。",
+         "destination":"目的地名；如：峨眉山、锦里。。",
          "goDate":"2001-01-14-20",    //年月日时
-         "phoneNum":"手机联系方式",
+         "phone":"手机联系方式",
          "content":"出行说明"
-         "wantNum":  "出行（拼车）人数"，
+         "wantNumber":  "出行（拼车）人数"，
        }
     }    
 
@@ -537,7 +537,7 @@
 
 客户端（POST）：
 
-    URL:localhost:3001/get/home_promote
+    URL:localhost:3001/get/home_recommend
     {
       "token":"",                      // string
       "type":"1010",                   // string
@@ -968,7 +968,7 @@
 
 客户端（POST）：
 
-    URL:localhost:3001/get/search_promote
+    URL:localhost:3001/get/search_recommend
     {
       "type":"1710",                   // string
       "token":"10101",                 // string--该token为空

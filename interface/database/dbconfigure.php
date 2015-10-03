@@ -1,13 +1,16 @@
 <?php
+// TODO 将登陆注册都改为 oop
 
-$dsn = "mysql:host=localhost;dbname=friendstrip";
-$db_user = 'jh';
-$db_password = '123456';
+
+$dsn = "mysql:host=localhost;dbname=ft";
+$db_user = 'root';
+$db_password = 'root';
 
 try {
 
     $db = new PDO($dsn, $db_user, $db_password);
     $db->setAttribute(PDO::ATTR_CASE, PDO::CASE_NATURAL);
+    $db->query('set names "utf8"');
 
 } catch (PDOException $error){
 
