@@ -13,7 +13,7 @@ var data = {
     "user_id": 1
 };
 
-$.post('action/get_user_info_by_id.php', data, function (res) {
+$.post('action/user_info.php', data, function (res) {
 console.log(res);
 });
 

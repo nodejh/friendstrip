@@ -112,4 +112,20 @@ class Common extends DB {
     }
 
 
+    /**验证短信验证码是否正确
+     * @return bool
+     */
+    public function reg_exp_msg_code() {
+        return true;
+    }
+
+
+    /**
+     * token
+     * @return string
+     */
+    public function token() {
+        return 'token';
+    }
+
 }
