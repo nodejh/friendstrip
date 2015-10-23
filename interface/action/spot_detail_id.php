@@ -31,7 +31,11 @@ class Comment extends Common {
 
     public function index() {
 
-        $get_data = $_POST;
+        //$get_data = $_POST;
+        $post_data = file_get_contents("php://input");
+        //$get_data = $_POST;
+        $get_data = json_decode($post_data, true);
+        //var_dump($get_data);
 
         $sql = "SELECT * FROM ft_spot WHERE spot_id=:spot_id ";
 
@@ -40,7 +44,7 @@ class Comment extends Common {
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $res = $stmt->fetch();
 
-        var_dump($res);
+        //var_dump($res);
 
         $spot['banner'] = explode(',', $res['picture']);
         //var_dump($spot);

@@ -55,3 +55,19 @@ var_dump($b);
 //{
 //    echo $results['name'];
 //}
+
+
+
+
+$query = "insert into contactinfo (name,address,phone) values(?,?,?)";
+$stmt = $dbh->prepare($query);
+
+$stmt->blinparam(1,$name);
+$stmt->blinparam(2,$address);
+$stmt->blinparam(3,phone);
+
+$name = "赵某某";
+$address = "海淀区中关村";
+$phone = "15801688348";
+
+$stmt->execute();           //执行参数被绑定后的准备语句

@@ -39,7 +39,14 @@ include 'common.class.php';
 
 $tool = new Common();
 
-$get_data = $_POST;
+
+$post_data = file_get_contents("php://input");
+//$get_data = $_POST;
+$get_data = json_decode($post_data, true);
+
+//echo gettype($post_data);
+
+var_dump($get_data['phone']);
 
 if ($tool->all_not_null($get_data)) {
 
