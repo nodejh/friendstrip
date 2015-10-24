@@ -35,9 +35,9 @@ class Comment extends Common {
 
 
     public function index() {
-        //$post_data = file_get_contents("php://input");
-        //$get_data = json_decode($post_data, true);
-        $get_data = $_POST;
+        $post_data = file_get_contents("php://input");
+        $get_data = json_decode($post_data, true);
+        //$get_data = $_POST;
 
         $sql = "INSERT INTO ft_comment(user_id, type, spotview_id, content, date) VALUES (:user_id, :type, :spotview_id, :content, :date)";
 

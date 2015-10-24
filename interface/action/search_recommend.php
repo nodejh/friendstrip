@@ -40,13 +40,12 @@ class Recommon extends Common {
     //当前景点
     public function get_spot() {
 
-        $sql = "SELECT spot_id FROM ft_spot";
-        $sql .= "WHERE spot_name LIKE %:city% ";
-        $sql .= "ORDER BY want_number";
-        $sql .= "LIMIT 1";
+        $get_data = $_POST;
 
+        $sql = 'SELECT spot_id FROM ft_spot WHERE name LIKE :name ORDER BY want_number LIMIT 1';
         $stmt = $this->db->prepare($sql);
-        $stmt->execute(array(':city'=> $_POST['city']));
+        $stmt->bindValue(':name', '%'.$get_data['city'].'%', PDO::PARAM_STR);
+        $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $res = $stmt->fetch();
 
@@ -61,6 +60,9 @@ class Recommon extends Common {
     // 推荐景区
     public function get_views() {
         $spot_id = $this->get_spot();
+
+        var_dump($spot_id);
+        die();
 
         $stmt = $this->db->prepare("select * from ft_view where spot_id=:spot_id LIMIT ".$this->num);
         $stmt->execute(array(':spot_id'=> $spot_id));

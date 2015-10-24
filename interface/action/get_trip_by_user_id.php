@@ -2,29 +2,28 @@
 <?php
 
 
-// 通过 trip_id 获取发布记录
-// get_trip_by_trip_id.php
+// 通过 user_id 获取发布记录
+// get_trip_by_user_id.php
 
 
 
 /*
 
 var data = {
-    "trip_id": 1
+    "user_id": 1
 };
 
-$.post('action/get_trip_by_id.php', data, function (res) {
+$.post('action/get_trip_by_user_id.php', data, function (res) {
 console.log(res);
 });
 
-
-
  */
+
 
 include 'common.class.php';
 
 
-class Recommon extends Common {
+class Trip extends Common {
 
     public $data;
 
@@ -37,15 +36,17 @@ class Recommon extends Common {
 
     public function get_trip() {
 
+        //$get_data = $_POST;
+
         $post_data = file_get_contents("php://input");
         $get_data = json_decode($post_data, true);
 
-        $sql = "SELECT * FROM ft_trip WHERE trip_id = :trip_id ";
+        $sql = "SELECT * FROM ft_trip WHERE user_id = :user_id ";
 
         $stmt = $this->db->prepare($sql);
-        $stmt->execute(array(':trip_id' => $get_data['trip_id']));
+        $stmt->execute(array(':user_id' => $get_data['user_id']));
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $res = $stmt->fetch();
+        $res = $stmt->fetchAll();
 
         if ($res) {
             $this->res['code'] = 0;
@@ -65,8 +66,8 @@ class Recommon extends Common {
 }
 
 
-$recommend = new Recommon();
-$recommend->get_trip();
+$trip = new Trip();
+$trip->get_trip();
 
 
 

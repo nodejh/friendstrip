@@ -37,6 +37,7 @@ class Recommon extends Common {
 
     public function get_trip() {
 
+        //$get_data = $_POST;
         $post_data = file_get_contents("php://input");
         $get_data = json_decode($post_data, true);
 
